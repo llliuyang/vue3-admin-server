@@ -22,7 +22,7 @@ export interface UserModelProps {
 export type RegisterModel = Omit<UserModelProps, 'id'|'isSuper'>
 
 // 在“User.build”和“User.create”调用中，有些属性是可选的
-interface UserCreationAttributes extends Optional<UserModelProps, "id" | "isSuper" | "status"> {}
+interface UserCreationAttributes extends Optional<UserModelProps, "id" | "isSuper" | "status" | "avatar"> {}
 
 interface UserInstance
     extends Model<UserModelProps, UserCreationAttributes>,
