@@ -1,8 +1,8 @@
 import Router from "@koa/router";
-import { registerController } from '../controller/auth'
+import { loginController, registerController } from '../controller/auth'
 
 const router = new Router({
-    prefix: '/api/auth'
+	prefix: '/api/auth'
 })
 
 /**
@@ -10,7 +10,15 @@ const router = new Router({
  * /auth/register
  */
 router.post('/register', async ctx => {
-    ctx.body = await registerController(ctx.request.body)
+	ctx.body = await registerController(ctx.request.body)
 })
 
+/**
+ * 用户登录接口
+ * /auth/login
+ */
+router.post('/login', async ctx => {
+	const { username, password } = ctx.request.body
+	ctx.body = await loginController({ username, password })
+})
 export default router
