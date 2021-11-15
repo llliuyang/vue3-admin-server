@@ -21,4 +21,11 @@ router.post('/login', async ctx => {
 	const { username, password } = ctx.request.body
 	ctx.body = await loginController({ username, password })
 })
+
+/**
+ * 测试接口
+ */
+router.get('/test', async ctx => {
+	ctx.body = '这只是一个测试接口罢了~'
+})
 export default router
